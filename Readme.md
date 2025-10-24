@@ -12,7 +12,9 @@ This repository contains a full-stack Inventory Management System built with the
 - [Tech stack](#tech-stack)
 - [Project structure](#project-structure)
 - [Requirements](#requirements)
+- [Setup Instructions](#setup-instructions)
 - [API overview](#api-overview)
+- [Deployment](#deployment)
 
 ## What it does
 
@@ -55,6 +57,65 @@ Top-level folders:
 - npm or yarn
 - MongoDB instance (local or hosted)
 
+## Setup Instructions
+
+### Clone the Repository
+
+```bash
+git clone <repo_url>
+cd Inventory-Management-System-MERN-Stack
+```
+
+### Backend Setup
+
+1. Navigate to the backend directory:
+   ```bash
+   cd Backend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the Backend directory with the following configuration:
+   ```env
+   MONGODB_URI=<your_mongodb_connection_string>
+   DB_NAME=<your_database_name>
+   PORT=<port_number>
+   SECRET_KEY=<your_jwt_secret_key>
+   FRONTEND=<frontend_application_url>
+   ```
+
+4. Start the backend server:
+   ```bash
+   npm run start
+   ```
+
+### Frontend Setup
+
+1. Navigate to the frontend directory from the project root:
+   ```bash
+   cd Frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the Frontend directory:
+   ```env
+   VITE_SERVER=<backend_api_url>
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+The application should now be running locally with the backend server on the specified port and the frontend development server on the default Vite port.
+
 ## API overview
 
 The backend exposes RESTful routes collected in the `Backend/routes/` folder. Example base paths (your server may differ — check `Backend/routes/*.js` for exact paths):
@@ -67,3 +128,14 @@ The backend exposes RESTful routes collected in the `Backend/routes/` folder. Ex
 - /api/analytics — analytics endpoints used by dashboard
 
 Authentication is required for protected endpoints and handled via JWT; check `Backend/middlewares/user_auth.js` and `Backend/controllers/user_controllers.js`.
+
+## Deployment
+
+The application is deployed and accessible at the following URLs:
+
+- Frontend Application: [https://inventory-management-5ald8tlu8-jinesh-gandhis-projects.vercel.app](https://inventory-management-5ald8tlu8-jinesh-gandhis-projects.vercel.app)
+- Backend API: [https://inventory-management-ng93.onrender.com](https://inventory-management-ng93.onrender.com)
+
+Please note that the backend service is hosted on Render's free tier, which automatically spins down after 15 minutes of inactivity to conserve resources. As a result, the initial request may experience a brief delay while the server instance restarts.
+
+To ensure optimal performance, you can verify the backend service status by accessing the API endpoint at [https://inventory-management-ng93.onrender.com](https://inventory-management-ng93.onrender.com). When the response indicates "everything works fine," the server is operational and ready to process requests.
