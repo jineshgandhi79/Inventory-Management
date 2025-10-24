@@ -24,7 +24,6 @@ function LoginScreen() {
         `${SERVER_URL}/api/v1/users/login`,
         formData,
         {
-          withCredentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
